@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-starter-kit",
-  "version": "3.0.0-alpha.2",
-  "description": "Get started with React, Redux, and React-Router!",
+  "name": "personal-news-source-trust-app",
+  "version": "0.1",
+  "description": "App for storing trust information about news sources and leaders of opinion",
   "main": "index.js",
   "engines": {
     "node": ">=4.5.0",
@@ -71,9 +71,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
+    "url": "git+https://github.com/vladiibine/trust-network.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Ardelean Vlad-George",
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.17.0",
