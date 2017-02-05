@@ -1,6 +1,6 @@
 {
   "name": "personal-news-source-trust-app",
-  "version": "0.1",
+  "version": "0.0.1-alpha.1",
   "description": "App for storing trust information about news sources and leaders of opinion",
   "main": "index.js",
   "engines": {
