@@ -52,6 +52,7 @@ webpackConfig.externals['react/addons'] = true
 
 // ------------------------------------
 // Plugins
+// VWH - this is the magic which inserts stuff into index.html
 // ------------------------------------
 webpackConfig.plugins = [
   new webpack.DefinePlugin(project.globals),
