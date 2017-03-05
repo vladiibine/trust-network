@@ -1,13 +1,13 @@
 import socket
 
-import app
+from tnb import app
 
 from restless.tnd import TornadoResource as RestlessResource
 from restless.exceptions import MethodNotImplemented
 
 from raven import Client
 
-from settings import settings
+from tnb.settings import settings
 
 
 class PaginationMixin(object):

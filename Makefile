@@ -20,8 +20,9 @@ srv-install-dev:
 		&& pip install -U pip \
 		&& pip install -U virtualenv \
 		&& { test -d $(VENV_DIR) || virtualenv --always-copy --python $(PYTHON) $(VENV_DIR); } \
-		&& pip install -U pip \
-		&& pip install -U ./src/python/trust_network_backend/
+		&& $(VENV_DIR)/bin/pip install -U pip \
+		&& $(VENV_DIR)/bin/pip install -U -e . \
+		&& $(VENV_DIR)/bin/pip install -r py-requirements/dev.txt -r py-requirements/test.txt
 	@echo "Done!"
 
 clean:

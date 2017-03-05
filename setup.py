@@ -9,8 +9,8 @@ with open('README.md') as readme_file:
 with open('HISTORY.md') as history_file:
 	history = history_file.read().replace('.. :changelog:', '')
 
-requirements = [line.strip() for line in open('requirements/prod.txt')]
-test_requirements = [line.strip() for line in open('requirements/test.txt')]
+requirements = [line.strip() for line in open('py-requirements/prod.txt')]
+test_requirements = [line.strip() for line in open('py-requirements/test.txt')]
 
 
 def main():
@@ -27,9 +27,9 @@ def main():
 		author="Ardelean Vlad George",
 		author_email='',
 		url='https://github.com/vladiibine/trust-network',
-		packages=find_packages(),
+		packages=find_packages('src/python/trust_network_backend'),
 		package_data={'tnb': ['templates/*',  'static/css/*', 'static/js/*', 'static/img/*']},
-		# package_dir={'tnb': os.path.join(CURRENT_PATH, 'tnb')},
+		package_dir={'': 'src/python/trust_network_backend'},
 		include_package_data=True,
 		install_requires=requirements,
 		# include_dirs=[CURRENT_PATH],

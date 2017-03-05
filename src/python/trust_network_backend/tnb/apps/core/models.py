@@ -1,1 +1,1 @@
-from contrib.db import Model
+from tnb.contrib.db import Model

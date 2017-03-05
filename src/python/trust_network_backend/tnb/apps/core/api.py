@@ -2,7 +2,7 @@ from tornado import gen
 
 from restless.preparers import FieldsPreparer
 
-from contrib.handlers import RestHandler
+from tnb.contrib.handlers import RestHandler
 
 
 class HealthcheckHandler(RestHandler):

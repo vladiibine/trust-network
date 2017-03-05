@@ -2,7 +2,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker, Session
 
 from .engine import Engine
 
-from settings import settings
+from tnb.settings import settings
 
 
 # Load engines

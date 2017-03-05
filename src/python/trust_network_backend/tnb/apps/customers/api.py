@@ -2,10 +2,10 @@ from tornado import gen
 
 from restless.preparers import FieldsPreparer
 
-from contrib.handlers import RestHandler
+from tnb.contrib.handlers import RestHandler
 
-from contrib.db import session
-from contrib.db.utils import get_or_404
+from tnb.contrib.db import session
+from tnb.contrib.db.utils import get_or_404
 
 from .models import Customer
 

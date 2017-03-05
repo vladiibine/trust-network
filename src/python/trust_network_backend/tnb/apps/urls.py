@@ -21,5 +21,5 @@ urls = [
     })
 ]
 
-urls += include(r"/healthcheck", "apps.core.urls")
-urls += include(r"/customers", "apps.customers.urls")
+urls += include(r"/healthcheck", "tnb.apps.core.urls")
+urls += include(r"/customers", "tnb.apps.customers.urls")

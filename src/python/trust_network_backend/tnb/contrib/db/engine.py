@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 
-from settings import settings
+from tnb.settings import settings
 
 
 class Engine(object):

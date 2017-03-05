@@ -1,6 +1,6 @@
 import datetime
 
-from contrib.db import Model
+from tnb.contrib.db import Model
 
 from sqlalchemy import Column, String, Integer, DateTime
 
