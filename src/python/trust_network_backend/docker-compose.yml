@@ -1,0 +1,9 @@
+app:
+    build: ./compose/app/
+    volumes:
+        - "./trust_network_backend:/app"
+    ports:
+        - "8888:8888"
+
+nginx:
+    build: ./compose/nginx
