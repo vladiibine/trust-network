@@ -95,3 +95,6 @@ htmlcov/
 dist/
 node_modules/
 *.swp
+
+venv-tnb/
+.tmpvenv
