@@ -20,5 +20,11 @@ srv-install-dev:
 		&& pip install -U pip \
 		&& pip install -U virtualenv \
 		&& { test -d $(VENV_DIR) || virtualenv --always-copy --python $(PYTHON) $(VENV_DIR); } \
-		&& { test -d $(VENV_DIR_LINK) || ln -s $(VENV_DIR) $(VENV_DIR_LINK); }
+		&& pip install -U pip \
+		&& pip install -U ./src/python/trust_network_backend/
 	@echo "Done!"
+
+clean:
+	rm -rf $(VENV_TMP_DIR)
+	rm -rf $(VENV_DIR)
+

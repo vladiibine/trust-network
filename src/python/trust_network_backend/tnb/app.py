@@ -28,16 +28,15 @@ class Application(tornado.web.Application):
 
 
 def info(attr):
-   meta = dict()
-   with codecs.open(os.path.join(settings.PROJECT_DIR, 'app.json'), 'r', encoding='UTF-8') as content:
-       meta = json.load(content)
+    with codecs.open(os.path.join(settings.PROJECT_DIR, 'app.json'), encoding='UTF-8') as content:
+        meta = json.load(content)
 
-       info = meta.get(attr)
-       if info:
-           return info
-       else:
-           raise ValueError(
-               'App info missing attribute {0} '.format(attr))
+        info = meta.get(attr)
+        if info:
+            return info
+        else:
+            raise ValueError(
+                'App info missing attribute {0} '.format(attr))
 
 
 def make_app():
