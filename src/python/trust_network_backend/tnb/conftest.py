@@ -3,7 +3,7 @@ os.environ.setdefault('TORNADO_SETTINGS_MODULE', 'settings.test')
 
 import pytest
 
-from app import make_app
+from tnb.app import make_app
 
 from contrib.db import session
 from contrib.db import Model

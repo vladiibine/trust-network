@@ -1,16 +1,28 @@
+import os
 try:
 	from setuptools import setup, find_packages
 except ImportError:
 	from distutils.core import setup, find_packages
 
-with open('trust_network_backend/README.md') as readme_file:
+CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
+
+
+def get_file_path(relative_path):
+	return os.path.join(CURRENT_PATH, relative_path)
+
+README_PATH = get_file_path('README.md')
+PROD_REQUIREMENTS = get_file_path("requirements/prod.txt")
+TEST_REQUIREMENTS = get_file_path("requirements/test.txt")
+HISTORY_PATH = get_file_path('HISTORY.md')
+
+with open(README_PATH) as readme_file:
 	readme = readme_file.read()
 
-with open('trust_network_backend/HISTORY.md') as history_file:
+with open(HISTORY_PATH) as history_file:
 	history = history_file.read().replace('.. :changelog:', '')
 
-requirements = [line.strip() for line in open("trust_network_backend/requirements/prod.txt", 'r')]
-test_requirements = [line.strip() for line in open("trust_network_backend/requirements/test.txt", 'r')]
+requirements = [line.strip() for line in open(PROD_REQUIREMENTS)]
+test_requirements = [line.strip() for line in open(TEST_REQUIREMENTS)]
 
 
 setup(
@@ -21,7 +33,7 @@ setup(
 	author="Ardelean Vlad George",
 	author_email='',
 	url='https://github.com/vladiibine/trust-network',
-	packages=find_packages(),
+	packages=find_packages('src/python/trust_network_backend'),
 	package_data={'ty.connect': ['templates/*',  'static/css/*', 'static/js/*', 'static/img/*']},
 	include_package_data=True,
 	install_requires=requirements,
@@ -40,7 +52,7 @@ setup(
 	tests_require=test_requirements,
 	entry_points={
 		'console_scripts': [
-			'serve=trust_network_backend.server:main',
+			'tnb_serve=tnb.server:main',
 		]
 	}
 )

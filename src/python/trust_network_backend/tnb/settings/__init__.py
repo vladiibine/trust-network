@@ -1,11 +1,12 @@
 import os
+from os.path import join, dirname, abspath
 import importlib
 
 from dotenv import load_dotenv
 
 
 # Load environment variables
-ENV_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+ENV_PATH = join(abspath(dirname(dirname(__file__))), '.env')
 load_dotenv(ENV_PATH)
 
 # import all settings

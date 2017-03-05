@@ -6,9 +6,9 @@ import tornado.ioloop
 import tornado.web
 import tornado.options
 
-from settings import settings
+from tnb.settings import settings
 
-from apps.urls import urls
+from tnb.apps.urls import urls
 
 
 class Application(tornado.web.Application):
