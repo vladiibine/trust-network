@@ -1,0 +1,4 @@
+=====Priorities list (highest priorities will be lower on the list)
+
+[] Make vagrant up/down/destroy work
+[] Make tornado serve the compiled assets

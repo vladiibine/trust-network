@@ -7,6 +7,7 @@ Vagrant.configure(VAGRANT_FILE_API_VERSION) do |config|
 
   config.vm.define "app" do |app|
     app.vm.box = "ubuntu/trusty64"
+    app.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     app.vm.network :private_network, ip: "192.168.33.23"
 
     app.vm.provision "ansible" do |ansible|

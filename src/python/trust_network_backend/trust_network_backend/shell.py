@@ -6,8 +6,8 @@ os.environ.setdefault('TORNADO_MODULE_SETTINGS', 'settings.development')
 import readline
 from pprint import pprint
 
-from app import *
-from server import *
+from trust_network_backend.app import *
+from trust_network_backend.server import *
 
 
 def make_shell():

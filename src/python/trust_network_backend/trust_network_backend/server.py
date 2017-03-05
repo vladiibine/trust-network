@@ -16,7 +16,7 @@ tornado.options.parse_command_line()
 
 
 def main():
-    import app
+    from trust_network_backend import app
 
     port = os.getenv('PORT', options.port)
     server = tornado.httpserver.HTTPServer(app.make_app())
