@@ -5,7 +5,7 @@ import AppContainer from './containers/AppContainer'
 
 // ========================================================
 debugger
-console.log("i'm quite sure this is the first thing the 'real' all code runs");
+console.log("i'm quite sure this is the first thing the 'real' all code runs")
 // ========================================================
 // Store Instantiation
 // ========================================================
