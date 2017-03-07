@@ -1,4 +1,6 @@
 import os
+
+from tornado import gen
 import tornado.web
 
 
@@ -10,25 +12,25 @@ class DocsHandler(tornado.web.RequestHandler):
         self.render("swagger/index.html", version=version)
 
 
-class CachingFrontendHandler(tornado.web.StaticFileHandler):
-    def __init__(self, *args, **kwargs):
-        self.__root = None
-        super(CachingFrontendHandler, self).__init__(*args, **kwargs)
-
-    @property
-    def root(self):
-        return self.__root
-
-    @root.setter
-    def root(self, value):
-        self.__root = value
-
-    def get(self, path, include_body=True):
-        print("serving %s from CachingFileHandler" % path)
-        return super(CachingFrontendHandler, self).get(path, include_body)
-
-
 class HomeHandler(tornado.web.StaticFileHandler):
+    @gen.coroutine
     def get(self, path, include_body=True):
-        print("serving %s from HomeHandler" %path)
-        super(HomeHandler, self).get('index.html', include_body)
+
+        yield super().get('index.html', include_body)
+
+
+class CachingFrontendHandler(tornado.web.StaticFileHandler):
+    """If a file exists in the root folder, serve it, otherwise serve index.html
+
+    """
+    @gen.coroutine
+    def get(self, path, include_body=True):
+        absolute_path = self.get_absolute_path(self.root, path)
+
+        is_file = os.path.isfile(absolute_path)
+
+        if is_file:
+            yield super().get(path, include_body)
+        else:
+            yield super().get('index.html', include_body)
+

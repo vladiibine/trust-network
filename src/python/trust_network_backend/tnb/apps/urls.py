@@ -11,7 +11,7 @@ from tnb.config import PYTHON_PROJECT_DIR, ASSETS_FOLDER
 
 urls = [
     # NEED to capture "nothing" cuz tornado is weird
-    url(r"^/?()$", HomeHandler, {'path': ASSETS_FOLDER}),
+    url(r"^/?([^.])$", HomeHandler, {'path': ASSETS_FOLDER}),
     url(r"^/docs$", DocsHandler),
     url(r"^/docs/version/(.*)$", web.StaticFileHandler, {"path": settings.DOCS_ROOT}),
     url(r"^/static/(.*)$", web.StaticFileHandler, {"path": settings.STATIC_ROOT}),
