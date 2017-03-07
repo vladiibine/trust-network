@@ -8,7 +8,7 @@ from tornado.options import define
 
 # define host and port
 define("host", default='127.0.0.1', help="run on the given host", type=str)
-define("port", default=3027, help="run on the given port", type=int)
+define("port", default=3214, help="run on the given port", type=int)
 tornado.options.parse_command_line()
 
 

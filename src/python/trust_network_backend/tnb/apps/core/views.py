@@ -2,25 +2,31 @@ import os
 import tornado.web
 
 
-class HomeHandler(tornado.web.RequestHandler):
-
-    def get(self):
-        self.write("Hello world")
-
-
 class DocsHandler(tornado.web.RequestHandler):
 
     def get(self):
-        version = "{}://{}/docs/version/v1.yml".format(self.request.protocol,
-                                                       self.request.host)
+        version = "{}://{}/docs/version/v1.yml".format(
+            self.request.protocol, self.request.host)
         self.render("swagger/index.html", version=version)
 
 
-class FrontendStaticHandler(tornado.web.StaticFileHandler):
-    def initialize(self, path):
-        self.dirname, self.filename = os.path.split(path)
-        super(FrontendStaticHandler, self).initialize(self.dirname)
+class CachingFrontendHandler(tornado.web.StaticFileHandler):
+    def __init__(self, *args, **kwargs):
+        self.__root = None
+        super(CachingFrontendHandler, self).__init__(*args, **kwargs)
 
-    def get(self, path=None, include_body=True):
-        # Ignore 'path'.
-        super(FrontendStaticHandler, self).get(self.filename, include_body)
+    @property
+    def root(self):
+        return self.__root
+
+    @root.setter
+    def root(self, value):
+        self.__root = value
+
+    def get(self, path, include_body=True):
+        return super(CachingFrontendHandler, self).get(path, include_body)
+
+
+class HomeHandler(tornado.web.StaticFileHandler):
+    def get(self, path, include_body=True):
+        super(HomeHandler, self).get('index.html', include_body)
