@@ -14,11 +14,6 @@ test_requirements = [line.strip() for line in open('py-requirements/test.txt')]
 
 
 def main():
-	try:
-		import pydevd; pydevd.settrace()
-	except ImportError as e:
-		pass
-
 	setup(
 		name='trust_network_backend',
 		version='0.1',
