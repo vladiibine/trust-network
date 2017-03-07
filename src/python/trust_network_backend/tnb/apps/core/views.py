@@ -24,9 +24,11 @@ class CachingFrontendHandler(tornado.web.StaticFileHandler):
         self.__root = value
 
     def get(self, path, include_body=True):
+        print("serving %s from CachingFileHandler" % path)
         return super(CachingFrontendHandler, self).get(path, include_body)
 
 
 class HomeHandler(tornado.web.StaticFileHandler):
     def get(self, path, include_body=True):
+        print("serving %s from HomeHandler" %path)
         super(HomeHandler, self).get('index.html', include_body)
