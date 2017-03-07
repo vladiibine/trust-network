@@ -28,6 +28,11 @@ srv-install-dev:
 clean:
 	rm -rf $(VENV_TMP_DIR)
 	rm -rf $(VENV_DIR)
+	find . -name trust_network_backend.egg-info -delete
+
 
 serve:
 	$(VENV_DIR)/bin/tnb_serve
+
+compile:
+	npm run compile
