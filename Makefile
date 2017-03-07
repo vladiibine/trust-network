@@ -29,3 +29,5 @@ clean:
 	rm -rf $(VENV_TMP_DIR)
 	rm -rf $(VENV_DIR)
 
+serve:
+	$(VENV_DIR)/bin/tnb_serve
