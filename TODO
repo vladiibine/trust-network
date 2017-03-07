@@ -1,4 +1,15 @@
 =====Priorities list (highest priorities will be lower on the list)
 
 [] Make vagrant up/down/destroy work
-[] Make tornado serve the compiled assets
+[v] Make tornado serve the compiled assets
+    [v] Make tornado serve everything "interesting" as the index.html file
+        >>> if i go to /index.html, i need the "index.html" file
+        >>> if I go to /, i need the index.html file
+        >>> if I go to /asdf/zxcv, i need the index.html file
+        >>> if i go to a '*egg-info*' file, that exists in the dist folder, i need index.html
+            >>> this doesn't have to be a rule. the *egg-info* files are not always being created
+        >>> if I go to any file that exists in the dist folder, then I need that file, otherwise index.html
+
+[] merge the tornado statics with the JS statics
+
+[] compile each route to its own file, and serve that individually as its own file
