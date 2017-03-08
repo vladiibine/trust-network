@@ -6,6 +6,7 @@ import tornado.web
 
 class DocsHandler(tornado.web.RequestHandler):
 
+    @gen.coroutine
     def get(self):
         version = "{}://{}/docs/version/v1.yml".format(
             self.request.protocol, self.request.host)
