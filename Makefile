@@ -35,7 +35,11 @@ test-srv:
         echo "Coverage report for python tests: "; \
 		$(VENV_DIR)/bin/coverage report |grep -v '\-\-\-\-\-\-\-\-'|grep -v 'src/python' \
 		    |sed 's/Name/    /g' ; \
-		$(VENV_DIR)/bin/coverage html
+		$(VENV_DIR)/bin/coverage html ; \
+		echo "Coverage report is done. Run 'chromium-browser htmlcov/index.html' to view it"
+
+test-client:
+	npm test
 
 clean:
 	rm -rf $(VENV_TMP_DIR)

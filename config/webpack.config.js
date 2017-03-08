@@ -10,7 +10,7 @@ const __DEV__ = project.globals.__DEV__
 const __PROD__ = project.globals.__PROD__
 const __TEST__ = project.globals.__TEST__
 
-debug('Creating configuration.')
+debug('Creating webpack configuration.')
 const webpackConfig = {
   name    : 'client',
   target  : 'web',
