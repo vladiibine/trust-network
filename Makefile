@@ -28,7 +28,9 @@ srv-install-dev:
 clean:
 	rm -rf $(VENV_TMP_DIR)
 	rm -rf $(VENV_DIR)
-	find . -name trust_network_backend.egg-info -delete
+	rm -rf dist
+	find . -name trust_network_backend.egg-info |xargs -I this rm -rf this
+	find . -name __pycache__ |xargs -I this rm -rf this
 
 
 serve:
