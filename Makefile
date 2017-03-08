@@ -25,6 +25,18 @@ srv-install-dev:
 		&& $(VENV_DIR)/bin/pip install -r py-requirements/dev.txt -r py-requirements/test.txt
 	@echo "Done!"
 
+frontend-install-dev:
+	npm install
+
+install-dev: srv-install-dev frontend-install-dev
+
+test-srv:
+	@$(VENV_DIR)/bin/coverage run --source src/python/trust_network_backend/tnb $(VENV_DIR)/bin/py.test tests/python; \
+        echo "Coverage report for python tests: "; \
+		$(VENV_DIR)/bin/coverage report |grep -v '\-\-\-\-\-\-\-\-'|grep -v 'src/python' \
+		    |sed 's/Name/    /g' ; \
+		$(VENV_DIR)/bin/coverage html
+
 clean:
 	rm -rf $(VENV_TMP_DIR)
 	rm -rf $(VENV_DIR)
