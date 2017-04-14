@@ -4,7 +4,7 @@ import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
 
 // ========================================================
-debugger
+debugger;
 console.log("i'm quite sure this is the first thing the 'real' all code runs")
 // ========================================================
 // Store Instantiation
@@ -20,6 +20,7 @@ const MOUNT_NODE = document.getElementById('root')
 let render = () => {
   const routes = require('./routes/index').default(store)
 
+  debugger
   ReactDOM.render(
     <AppContainer store={store} routes={routes} />,
     MOUNT_NODE

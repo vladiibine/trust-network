@@ -1,6 +1,8 @@
 import { injectReducer } from '../../store/reducers'
 
-export default (store) => ({
+export default (store) => {
+  debugger;
+  return {
   path : 'counter',
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
@@ -16,9 +18,10 @@ export default (store) => ({
       injectReducer(store, { key: 'counter', reducer })
 
       /*  Return getComponent   */
-      cb(null, Counter)
+      cb(null, Counter);
 
     /* Webpack named bundle   */
     }, 'counter')
   }
-})
+}
+}

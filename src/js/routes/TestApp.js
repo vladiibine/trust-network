@@ -64,7 +64,7 @@ export class App extends React.Component{
 
   createInitialState(additionalState={}){
     let state = {
-      degrees: null,
+      degrees: '',
       scale: 'celsius',
     };
 
